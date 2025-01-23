@@ -25,8 +25,9 @@ atomicwrites
 flake8
 yamllint
 pip>=21.3,<=24.0 # PEP 660 – Editable installs for pyproject.toml based builds (wheel based)
-
+python-ldap
 # python debuggers
 debugpy
 remote-pdb
 sdb
+PyJWT

@@ -37,7 +37,8 @@ RUN dnf -y update && dnf install -y 'dnf-command(config-manager)' && \
     nss \
     openldap-devel \
     # pin to older openssl, see jira AAP-23449
-    openssl-3.0.7 \
+    openssl-3.2.1 \
+    #openssl-3.0.7 \
     patch \
     postgresql \
     postgresql-devel \
@@ -123,7 +124,8 @@ RUN dnf -y update && dnf install -y 'dnf-command(config-manager)' && \
     nginx \
     "openldap >= 2.6.2-3" \
     # pin to older openssl, see jira AAP-23449
-    openssl-3.0.7 \
+    #openssl-3.0.7 \
+    openssl-3.2.1 \
     postgresql \
     python3.11 \
     "python3.11-devel" \
@@ -131,6 +133,7 @@ RUN dnf -y update && dnf install -y 'dnf-command(config-manager)' && \
     "python3.11-setuptools" \
     "python3.11-packaging" \
     "python3.11-psycopg2" \
+    python-ldap \
     rsync \
     rsyslog-8.2102.0-106.el9 \
     subversion \
