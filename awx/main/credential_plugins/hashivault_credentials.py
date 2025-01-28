@@ -8,15 +8,13 @@ from jwcrypto import jwk
 from urllib.parse import urljoin
 import time
 import requests
-#from jwt import JWT, jwk_from_pem
 
 def read_key(path):
+
     try:
         with open(path, 'rb') as pem_file:
-            private_key = serialization.load_pem_private_key(
-                f.read(),
-                password=None,  # If your key is password-protected, provide it here
-        )
+            private_key = pem_file.read()
+
         return jwk.JWK.from_pem(private_key)
     except Exception as e:
         raise ValueError("Error while parsing key file: {0}".format(e))
@@ -72,6 +70,8 @@ def vault_jwt_login(**kwargs):
 
 
 def gen_wrapped_secret_id(**kwargs):
+    with open('/tmp/plugin.log', 'ra') as log_file:
+        print('Entered '+ sys._getframe().f_code.co_name)
     org = kwargs.get('org')
     team = kwargs.get('team')
     team_vault_approle = kwargs.get('team_vault_approle')
@@ -103,7 +103,7 @@ def gen_wrapped_secret_id(**kwargs):
 
 
 hashivault_jwt_credential_plugin = CredentialPlugin(
-    'HashiVault Wrapped SecretID',
+    'HashiVault Wrapped SecretID 2',
 
     inputs={
        'fields': [{
